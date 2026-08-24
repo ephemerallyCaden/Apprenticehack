@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApprenticeHack: Degree Apprentice Hackathon Group</title>
+<meta name="description" content="ApprenticeHack is where degree apprentices turn late nights and big ideas into working products.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  THESIS: an apprentice already carries proof they belong: an employee
+  access badge. ApprenticeHack refuses the generic dark-SaaS-with-particles
+  hero and instead issues that badge back to the visitor, because "levelling
+  the playing field" is a credential problem, not a mood.
+  OWN-WORLD: matte near-black (no glow, no gradient, no blur), one quiet
+  teal accent reserved for badge fields and links, flat inverted buttons,
+  the badge component (stripe, photo frame, field list, barcode) reused
+  across hero, team roster, and the sign-up success state.
+  FIRST VIEWPORT: left-aligned headline and tagline, a physical badge tilted
+  in the right column, one primary action ("Join for free").
+  FORM: hero, about, inline team roster, and CTA band; event details stay
+  out of scope until a later prompt extends this same world.
+-->
+
+<a class="skip-link" href="#about">Skip to what we do</a>
+
+<header class="topbar">
+  <a class="topbar__mark" href="index.html">
+    <img class="topbar__logo" src="logo.svg" alt="" width="30" height="30">
+    <span>Apprentice<span class="topbar__mark-accent">Hack</span></span>
+  </a>
+  <nav class="topbar__links" aria-label="Main">
+    <a class="topbar__link" href="#team">Team</a>
+    <a class="topbar__link" href="register.html">Join for free</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <h1 class="hero__title">Apprentice<wbr><span class="hero__title-accent">Hack</span></h1>
+        <p class="hero__tagline">Where degree apprentices turn late nights and big ideas into working products.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="register.html">Join for free</a>
+          <a class="hero__cue" href="#about">
+            This is our mission
+            <svg class="icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12M5 11l5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__badge-wrap">
+        <div class="hero__badge-back" aria-hidden="true"></div>
+        <div class="badge" aria-hidden="true">
+          <div class="badge__stripe">
+            <img class="badge__stripe-logo" src="logo.svg" alt="">
+            <span class="badge__stripe-text">APPRENTICEHACK</span>
+          </div>
+          <div class="badge__photo">
+            <img class="badge__photo-mark" src="logo.svg" alt="">
+          </div>
+          <dl class="badge__fields">
+            <div class="badge__field">
+              <dt>Holder</dt>
+              <dd>You</dd>
+            </div>
+            <div class="badge__field">
+              <dt>Clearance</dt>
+              <dd class="is-accent">All levels welcome</dd>
+            </div>
+            <div class="badge__field">
+              <dt>Issued</dt>
+              <dd>2026</dd>
+            </div>
+          </dl>
+          <div class="badge__barcode"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about__inner">
+      <h2 class="about__heading js-reveal">Levelling the <span class="about__heading-accent">playing field</span></h2>
+      <div class="about__divider" aria-hidden="true"></div>
+      <div class="about__body js-reveal">
+        <p>University students get built-in access to hackathons, sponsor showcases, and the networks that turn a weekend project into a career. Degree apprentices don't get that, even though we're splitting our time between a job and a degree just as hard. Most events are still scheduled, marketed, and run like a lecture timetable is the only shape a student's life can take, and that gap isn't an accident. It won't close on its own.</p>
+        <p>So we started ApprenticeHack: an initiative built by degree apprentices, for degree apprentices. Same sponsors, same prizes, same mentors and stage, now in front of people who are already proving themselves on the job. No lecture-hall assumptions, no "students only" fine print. If you're building your career while you build your degree, this is the level playing field nobody handed you, so we built it ourselves.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="team__inner">
+      <h2 class="team__heading js-reveal">Meet the <span class="team__heading-accent">team</span></h2>
+      <p class="team__lede js-reveal">Two degree apprentices who got tired of waiting for an invite, so they started sending them instead.</p>
+
+      <div class="team__grid">
+
+        <article class="team__card js-reveal js-reveal--card">
+          <div class="badge-flip" data-tilt>
+            <div class="badge-flip__inner">
+
+              <!-- Reverse of the badge: what you see before it turns over. -->
+              <div class="badge-flip__face badge-flip__face--back" aria-hidden="true">
+                <div class="badge badge--back">
+                  <div class="badge__stripe">
+                    <img class="badge__stripe-logo" src="logo.svg" alt="">
+                    <span class="badge__stripe-text">APPRENTICEHACK</span>
+                  </div>
+                  <div class="badge__magstripe"></div>
+                  <div class="badge__backnote">
+                    <p class="badge__backnote-title">Member card</p>
+                    <p>This card stays the property of ApprenticeHack. If found, hand it back to any organiser.</p>
+                  </div>
+                  <div class="badge__barcode"></div>
+                </div>
+              </div>
+
+              <!-- Replace the .badge__photo-placeholder block with <img class="badge__photo-mark" src="..." alt="Caden Cheong"> once a photo is available. -->
+              <div class="badge-flip__face badge-flip__face--front">
+                <div class="badge">
+                  <div class="badge__stripe">
+                    <img class="badge__stripe-logo" src="logo.svg" alt="">
+                    <span class="badge__stripe-text">APPRENTICEHACK</span>
+                  </div>
+                  <div class="badge__photo">
+                    <div class="badge__photo-placeholder" role="img" aria-label="Placeholder portrait for Caden Cheong">
+                      <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                        <circle cx="60" cy="45" r="19" stroke="currentColor" stroke-width="3"/>
+                        <path d="M25 101c0-19.33 15.67-35 35-35s35 15.67 35 35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <dl class="badge__fields">
+                    <div class="badge__field">
+                      <dt>Name</dt>
+                      <dd>Caden Cheong</dd>
+                    </div>
+                    <div class="badge__field">
+                      <dt>Role</dt>
+                      <dd>Software Engineering Degree Apprentice</dd>
+                    </div>
+                    <div class="badge__field">
+                      <dt>Company</dt>
+                      <dd class="is-accent">Amazon</dd>
+                    </div>
+                  </dl>
+                  <div class="badge__barcode"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <p class="team__bio">Caden splits the week between shipping production code and coursework, which is exactly the balance most degree apprentices know well. He came into tech through the apprenticeship route rather than a full-time campus degree, and spends his spare cycles on side projects, hackathon builds, and helping newer apprentices get past the part where everything looks intimidating.</p>
+        </article>
+
+        <article class="team__card js-reveal js-reveal--card">
+          <div class="badge-flip" data-tilt>
+            <div class="badge-flip__inner">
+
+              <!-- Reverse of the badge: what you see before it turns over. -->
+              <div class="badge-flip__face badge-flip__face--back" aria-hidden="true">
+                <div class="badge badge--back">
+                  <div class="badge__stripe">
+                    <img class="badge__stripe-logo" src="logo.svg" alt="">
+                    <span class="badge__stripe-text">APPRENTICEHACK</span>
+                  </div>
+                  <div class="badge__magstripe"></div>
+                  <div class="badge__backnote">
+                    <p class="badge__backnote-title">Member card</p>
+                    <p>This card stays the property of ApprenticeHack. If found, hand it back to any organiser.</p>
+                  </div>
+                  <div class="badge__barcode"></div>
+                </div>
+              </div>
+
+              <!-- Replace the .badge__photo-placeholder block with <img class="badge__photo-mark" src="..." alt="Mohamed Maygi"> once a photo is available. -->
+              <div class="badge-flip__face badge-flip__face--front">
+                <div class="badge">
+                  <div class="badge__stripe">
+                    <img class="badge__stripe-logo" src="logo.svg" alt="">
+                    <span class="badge__stripe-text">APPRENTICEHACK</span>
+                  </div>
+                  <div class="badge__photo">
+                    <div class="badge__photo-placeholder" role="img" aria-label="Placeholder portrait for Mohamed Maygi">
+                      <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                        <circle cx="60" cy="45" r="19" stroke="currentColor" stroke-width="3"/>
+                        <path d="M25 101c0-19.33 15.67-35 35-35s35 15.67 35 35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <dl class="badge__fields">
+                    <div class="badge__field">
+                      <dt>Name</dt>
+                      <dd>Mohamed Maygi</dd>
+                    </div>
+                    <div class="badge__field">
+                      <dt>Role</dt>
+                      <dd>Data Science Degree Apprentice</dd>
+                    </div>
+                    <div class="badge__field">
+                      <dt>Company</dt>
+                      <dd class="is-accent">Unilever</dd>
+                    </div>
+                  </dl>
+                  <div class="badge__barcode"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <p class="team__bio">Mohamed works on data problems by day and studies for the same degree everyone else does, just on a different timetable. Coming up through an apprenticeship meant learning on real systems with real consequences, and it left him with strong opinions about how much good talent gets filtered out before it ever reaches a hackathon table.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="join">
+    <div class="cta__inner js-reveal">
+      <h2 class="cta__heading">Come and build something</h2>
+      <p class="cta__text">No experience needed, no team needed, no idea needed. Turn up and we will sort the rest.</p>
+      <div class="cta__actions">
+        <a class="btn btn--primary" href="register.html">Join for free</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

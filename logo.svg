@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ApprenticeHack">
+  <rect width="128" height="128" rx="28" fill="#1A1B1B"/>
+  <g fill="#45D8C5">
+    <path d="M44.3 30H98v68H67.4V81.7H55.8V98H30V57.9Z"/>
+  </g>
+  <g stroke="#1A1B1B" fill="none">
+    <path d="M60 46 78 56 60 66" stroke-width="6"/>
+    <path d="M40.5 69h15.5" stroke-width="6.5"/>
+  </g>
+</svg>

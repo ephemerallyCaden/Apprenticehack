@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Your Badge: ApprenticeHack</title>
+<meta name="description" content="Request your ApprenticeHack badge. Every skill level is welcome.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#register-form">Skip to the form</a>
+
+<header class="topbar">
+  <a class="topbar__mark" href="index.html">
+    <img class="topbar__logo" src="logo.svg" alt="" width="30" height="30">
+    <span>Apprentice<span class="topbar__mark-accent">Hack</span></span>
+  </a>
+  <nav class="topbar__links" aria-label="Main">
+    <a class="topbar__link" href="index.html">Home</a>
+    <a class="topbar__link" href="index.html#team">Team</a>
+  </nav>
+</header>
+
+<main>
+  <section class="pagehead">
+    <h1 class="pagehead__title">Request your <span class="pagehead__title-accent">badge</span></h1>
+    <p class="pagehead__lede">Takes about a minute. You do not need experience, a team, or an idea yet.</p>
+  </section>
+
+  <section class="signup" id="register">
+    <form class="form" id="register-form" novalidate>
+
+      <div class="field">
+        <label class="field__label" for="name">Your name</label>
+        <input class="input" type="text" id="name" name="name" autocomplete="name" placeholder="Jordan Ellis" aria-describedby="err-name" required>
+        <p class="field__error" id="err-name" hidden></p>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="email">Email</label>
+        <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="hint-email err-email" required>
+        <p class="field__hint" id="hint-email">This is the only way we can send you dates and team placement.</p>
+        <p class="field__error" id="err-email" hidden></p>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="company">Company or university</label>
+        <input class="input" type="text" id="company" name="company" autocomplete="organization" placeholder="Where you work or study" aria-describedby="hint-company err-company" required>
+        <p class="field__hint" id="hint-company">If you are between things right now, just put what you are working towards.</p>
+        <p class="field__error" id="err-company" hidden></p>
+      </div>
+
+      <fieldset class="field">
+        <legend class="field__label">Which are you?</legend>
+        <p class="field__error" id="err-route" hidden></p>
+        <div class="choices choices--two">
+          <label class="choice">
+            <input type="radio" name="route" value="apprentice" required>
+            <span class="choice__box">
+              <span class="choice__title">Degree apprentice</span>
+              <span class="choice__note">Working and studying at the same time</span>
+            </span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="route" value="student">
+            <span class="choice__box">
+              <span class="choice__title">Student</span>
+              <span class="choice__note">Full time at university or college</span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend class="field__label">Where are you on the journey?</legend>
+        <p class="field__hint" id="hint-level">There is no wrong answer. We build every team as a mix, so first-timers sit next to people who have shipped for years.</p>
+        <p class="field__error" id="err-level" hidden></p>
+        <div class="choices choices--three">
+          <label class="choice">
+            <input type="radio" name="level" value="starting" required>
+            <span class="choice__box">
+              <span class="choice__title">Just starting</span>
+              <span class="choice__note">Curious, not built much yet</span>
+            </span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="level" value="finding-feet">
+            <span class="choice__box">
+              <span class="choice__title">Finding my feet</span>
+              <span class="choice__note">Some projects under my belt</span>
+            </span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="level" value="confident">
+            <span class="choice__box">
+              <span class="choice__title">Confident</span>
+              <span class="choice__note">I can carry a build</span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend class="field__label">What are you into?</legend>
+        <p class="field__hint">Pick anything that sounds interesting, including things you have never tried.</p>
+        <div class="tags">
+          <label class="tag"><input type="checkbox" name="interests" value="frontend"><span class="tag__box">Frontend</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="backend"><span class="tag__box">Backend</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="data"><span class="tag__box">Data and ML</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="cloud"><span class="tag__box">Cloud and DevOps</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="mobile"><span class="tag__box">Mobile</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="design"><span class="tag__box">Design and UX</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="security"><span class="tag__box">Security</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="hardware"><span class="tag__box">Hardware and IoT</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="product"><span class="tag__box">Product and pitching</span></label>
+          <label class="tag"><input type="checkbox" name="interests" value="unsure"><span class="tag__box">Not sure yet</span></label>
+        </div>
+      </fieldset>
+
+      <div class="form__error" id="form-error" role="alert" hidden>
+        <p class="form__error-title">A few things still need filling in</p>
+        <ul class="form__error-list" id="form-error-list"></ul>
+      </div>
+
+      <div class="form__foot">
+        <button class="btn btn--primary" type="submit">Request my badge</button>
+      </div>
+
+      <p class="form__note">We will only use this to place you in a team and email you about the event.</p>
+    </form>
+
+    <div class="success" id="form-success" role="status" tabindex="-1" hidden>
+      <span class="success__eyebrow">Badge issued</span>
+      <h2 class="success__title">You're in</h2>
+      <p class="success__text">Thanks for signing up. We will email you with dates, team placement, and everything you need to turn up ready.</p>
+
+      <div class="badge" id="success-badge" aria-label="Your ApprenticeHack badge">
+        <div class="badge__stripe">
+          <img class="badge__stripe-logo" src="logo.svg" alt="">
+          <span class="badge__stripe-text">APPRENTICEHACK</span>
+        </div>
+        <div class="badge__photo">
+          <img class="badge__photo-mark" src="logo.svg" alt="">
+        </div>
+        <dl class="badge__fields" id="success-badge-fields"></dl>
+        <div class="badge__barcode"></div>
+      </div>
+
+      <div class="success__actions">
+        <button class="success__edit" type="button" id="success-edit">Edit my answers</button>
+        <a class="btn btn--secondary" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

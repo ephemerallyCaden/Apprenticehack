@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet the Team: ApprenticeHack</title>
+<meta name="description" content="The degree apprentices behind ApprenticeHack.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#team">Skip to the team</a>
+
+<header class="topbar">
+  <a class="topbar__mark" href="index.html">
+    <img class="topbar__logo" src="logo.svg" alt="" width="30" height="30">
+    <span>Apprentice<span class="topbar__mark-accent">Hack</span></span>
+  </a>
+  <nav class="topbar__links" aria-label="Main">
+    <a class="topbar__link" href="index.html">Home</a>
+    <a class="topbar__link" href="register.html">Join for free</a>
+  </nav>
+</header>
+
+<main>
+  <section class="pagehead">
+    <h1 class="pagehead__title">Meet the <span class="pagehead__title-accent">team</span></h1>
+    <p class="pagehead__lede">Two degree apprentices who got tired of waiting for an invite, so they started sending them instead.</p>
+  </section>
+
+  <section class="roster" id="team">
+
+    <article class="roster__member js-reveal">
+      <div class="badge">
+        <div class="badge__stripe">
+          <img class="badge__stripe-logo" src="logo.svg" alt="">
+          <span class="badge__stripe-text">APPRENTICEHACK</span>
+        </div>
+        <!-- Replace the .badge__photo-placeholder block with <img class="badge__photo-mark" src="..." alt="Caden Cheong"> once a photo is available. -->
+        <div class="badge__photo">
+          <div class="badge__photo-placeholder" role="img" aria-label="Placeholder portrait for Caden Cheong">
+            <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+              <circle cx="60" cy="45" r="19" stroke="currentColor" stroke-width="3"/>
+              <path d="M25 101c0-19.33 15.67-35 35-35s35 15.67 35 35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <dl class="badge__fields">
+          <div class="badge__field">
+            <dt>Name</dt>
+            <dd>Caden Cheong</dd>
+          </div>
+          <div class="badge__field">
+            <dt>Role</dt>
+            <dd>Software Engineering Degree Apprentice</dd>
+          </div>
+          <div class="badge__field">
+            <dt>Company</dt>
+            <dd class="is-accent">Amazon</dd>
+          </div>
+        </dl>
+        <div class="badge__barcode"></div>
+      </div>
+
+      <div class="member__body">
+        <h2 class="member__name">Caden Cheong</h2>
+        <p class="member__role">Software Engineering Degree Apprentice <span class="member__at">at</span> Amazon</p>
+        <p class="member__bio">Caden splits the week between shipping production code and coursework, which is exactly the balance most degree apprentices know well. He came into tech through the apprenticeship route rather than a full-time campus degree, and spends his spare cycles on side projects, hackathon builds, and helping newer apprentices get past the part where everything looks intimidating. He is happiest with a rough idea, a short deadline, and a team that has not met before.</p>
+      </div>
+    </article>
+
+    <div class="roster__rule" aria-hidden="true"></div>
+
+    <article class="roster__member js-reveal">
+      <div class="badge">
+        <div class="badge__stripe">
+          <img class="badge__stripe-logo" src="logo.svg" alt="">
+          <span class="badge__stripe-text">APPRENTICEHACK</span>
+        </div>
+        <!-- Replace the .badge__photo-placeholder block with <img class="badge__photo-mark" src="..." alt="Mohamed Maygi"> once a photo is available. -->
+        <div class="badge__photo">
+          <div class="badge__photo-placeholder" role="img" aria-label="Placeholder portrait for Mohamed Maygi">
+            <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+              <circle cx="60" cy="45" r="19" stroke="currentColor" stroke-width="3"/>
+              <path d="M25 101c0-19.33 15.67-35 35-35s35 15.67 35 35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <dl class="badge__fields">
+          <div class="badge__field">
+            <dt>Name</dt>
+            <dd>Mohamed Maygi</dd>
+          </div>
+          <div class="badge__field">
+            <dt>Role</dt>
+            <dd>Data Science Degree Apprentice</dd>
+          </div>
+          <div class="badge__field">
+            <dt>Company</dt>
+            <dd class="is-accent">Unilever</dd>
+          </div>
+        </dl>
+        <div class="badge__barcode"></div>
+      </div>
+
+      <div class="member__body">
+        <h2 class="member__name">Mohamed Maygi</h2>
+        <p class="member__role">Data Science Degree Apprentice <span class="member__at">at</span> Unilever</p>
+        <p class="member__bio">Mohamed works on data problems by day and studies for the same degree everyone else does, just on a different timetable. Coming up through an apprenticeship meant learning on real systems with real consequences, and it left him with strong opinions about how much good talent gets filtered out before it ever reaches a hackathon table. He handles the data and analytics side of ApprenticeHack, and will happily talk anyone through their first model.</p>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="closer">
+    <p class="closer__text">That is the whole team for now. If you want to help run this, come find us.</p>
+    <a class="btn btn--primary" href="register.html">Join for free</a>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
