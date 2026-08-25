@@ -7,7 +7,7 @@
   --line-hover: #869090;
   --ink: #EDEEEC;
   --ink-dim: #8C9997;
-  --ink-faint: #6B7472;
+  --ink-faint: #818987;
   --teal: #45D8C5;
   --teal-dim: rgba(69, 216, 197, 0.14);
   --teal-line: rgba(69, 216, 197, 0.4);
@@ -106,6 +106,9 @@ main {
 /* ---- Topbar, shared across all three pages ---- */
 
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -113,6 +116,7 @@ main {
   max-width: 1240px;
   margin: 0 auto;
   padding: 1.75rem 6vw 0;
+  background: var(--bg-0);
 }
 
 .topbar__mark {
@@ -489,8 +493,10 @@ main {
   transform: translateY(0);
 }
 
-.about__body.js-reveal {
-  transition-delay: 100ms;
+/* Shared stagger: any lede/body that follows a heading into view waits
+   the same beat behind it, everywhere this pattern is used. */
+.js-reveal--lede {
+  transition-delay: 120ms;
 }
 
 /* ---- Team, inline on the homepage ---- */
@@ -573,7 +579,7 @@ main {
 }
 
 .team__grid > .team__card:nth-child(2) .badge-flip__inner {
-  transition-delay: 220ms;
+  transition-delay: 150ms;
 }
 
 .badge-flip__face {
@@ -595,6 +601,32 @@ main {
 
 .badge-flip:hover .badge {
   box-shadow: 0 34px 62px -30px rgba(0, 0, 0, 0.9);
+}
+
+/* Holographic sheen: a light sweep that tracks the pointer, like foil
+   catching light as a laminated card tilts. Pointer-driven only, so it
+   rides the same tilt effect's guard clauses (no touch, no reduced motion). */
+.badge-flip__face > .badge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(237, 238, 236, 0.22) 47%,
+    rgba(69, 216, 197, 0.28) 51%,
+    transparent 65%
+  );
+  background-size: 220% 220%;
+  background-position: var(--shine-x, 50%) var(--shine-y, 50%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.badge-flip.is-tilting .badge-flip__face > .badge::after {
+  opacity: 1;
 }
 
 .badge--back {
@@ -661,6 +693,13 @@ main {
 
 .team__grid > .js-reveal--card:nth-child(3) {
   transition-delay: 300ms;
+}
+
+/* ---- Team roster, standalone page: same stagger beat as the homepage's
+   inline team grid, so both places feel like one system. ---- */
+
+.roster__member:nth-of-type(2) {
+  transition-delay: 150ms;
 }
 
 /* ---- CTA band ---- */

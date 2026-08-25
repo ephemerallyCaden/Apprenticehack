@@ -35,22 +35,26 @@
   <section class="signup" id="register">
     <form class="form" id="register-form" novalidate>
 
+      <noscript>
+        <p class="form__error">This form needs JavaScript to submit safely (it filters out spam before anything is sent). Please enable JavaScript and reload the page to register.</p>
+      </noscript>
+
       <div class="field">
         <label class="field__label" for="name">Your name</label>
-        <input class="input" type="text" id="name" name="name" autocomplete="name" placeholder="Jordan Ellis" aria-describedby="err-name" required>
+        <input class="input" type="text" id="name" name="name" autocomplete="name" placeholder="Jordan Ellis" aria-describedby="err-name" maxlength="100" required>
         <p class="field__error" id="err-name" hidden></p>
       </div>
 
       <div class="field">
         <label class="field__label" for="email">Email</label>
-        <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="hint-email err-email" required>
+        <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="hint-email err-email" maxlength="254" required>
         <p class="field__hint" id="hint-email">This is the only way we can send you dates and team placement.</p>
         <p class="field__error" id="err-email" hidden></p>
       </div>
 
       <div class="field">
         <label class="field__label" for="company">Company or university</label>
-        <input class="input" type="text" id="company" name="company" autocomplete="organization" placeholder="Where you work or study" aria-describedby="hint-company err-company" required>
+        <input class="input" type="text" id="company" name="company" autocomplete="organization" placeholder="Where you work or study" aria-describedby="hint-company err-company" maxlength="100" required>
         <p class="field__hint" id="hint-company">If you are between things right now, just put what you are working towards.</p>
         <p class="field__error" id="err-company" hidden></p>
       </div>

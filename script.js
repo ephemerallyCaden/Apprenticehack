@@ -43,7 +43,7 @@ document.documentElement.classList.add('js');
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
-  const MAX_DEG = 10;
+  const MAX_DEG = 13;
 
   cards.forEach((card) => {
     let frame = null;
@@ -62,7 +62,11 @@ document.documentElement.classList.add('js');
         // Perspective comes from .team__card, so it must not be repeated here.
         card.style.transform =
           `rotateY(${(dx * MAX_DEG * 2).toFixed(2)}deg) ` +
-          `rotateX(${(-dy * MAX_DEG * 2).toFixed(2)}deg) translateZ(8px)`;
+          `rotateX(${(-dy * MAX_DEG * 2).toFixed(2)}deg) translateZ(14px)`;
+        // Holographic sheen: moves opposite the tilt, like light catching
+        // a laminated card as you turn it.
+        card.style.setProperty('--shine-x', `${((0.5 - dx) * 100).toFixed(1)}%`);
+        card.style.setProperty('--shine-y', `${((0.5 - dy) * 100).toFixed(1)}%`);
       });
     });
 
@@ -72,6 +76,8 @@ document.documentElement.classList.add('js');
       // Drop the class first so the transition carries it home.
       card.classList.remove('is-tilting');
       card.style.transform = '';
+      card.style.removeProperty('--shine-x');
+      card.style.removeProperty('--shine-y');
     });
   });
 })();
@@ -106,7 +112,7 @@ document.documentElement.classList.add('js');
       name: 'email',
       label: 'your email',
       message: 'We need an email address to send you the details.',
-      valid: (d) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text(d.get('email'))),
+      valid: (d) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(text(d.get('email'))),
     },
     {
       name: 'company',
