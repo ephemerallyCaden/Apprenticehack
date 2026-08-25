@@ -80,11 +80,18 @@ document.documentElement.classList.add('js');
   const form = document.getElementById('register-form');
   if (!form) return;
 
+  // Apps Script Web App endpoint. Appends one row per submission to the
+  // registrations Google Sheet. See PRODUCT.md / the deploy notes for setup.
+  const REGISTER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw8U2GNotKDvsbQBN4_PzjKM42eS7KzmVfT4Rf3AjPuHa-K-HqM-Ov-Xhp8qP_HeD0F/exec';
+
   const summary = document.getElementById('form-error');
   const summaryList = document.getElementById('form-error-list');
+  const submitError = document.getElementById('form-submit-error');
   const success = document.getElementById('form-success');
   const badgeFields = document.getElementById('success-badge-fields');
   const editBtn = document.getElementById('success-edit');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitBtnDefaultText = submitBtn ? submitBtn.textContent : '';
 
   const text = (v) => String(v || '').trim();
 
@@ -149,13 +156,14 @@ document.documentElement.classList.add('js');
     badgeFields.append(dt, dd);
   }
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const data = new FormData(form);
     const invalid = FIELDS.filter((f) => !f.valid(data));
 
     FIELDS.forEach((f) => clearField(f.name));
+    submitError.hidden = true;
 
     if (invalid.length) {
       invalid.forEach(markField);
@@ -182,6 +190,49 @@ document.documentElement.classList.add('js');
 
     summary.hidden = true;
 
+    // Honeypot: real visitors never see or fill this field. If it has a
+    // value, quietly treat the submission as accepted without sending it on.
+    if (text(data.get('hp-field')) !== '') {
+      showSuccess(data);
+      return;
+    }
+
+    const payload = {
+      name: text(data.get('name')),
+      email: text(data.get('email')),
+      company: text(data.get('company')),
+      route: text(data.get('route')),
+      level: text(data.get('level')),
+      interests: data.getAll('interests'),
+    };
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
+
+    try {
+      const res = await fetch(REGISTER_ENDPOINT, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json();
+      if (!res.ok || result.result !== 'success') {
+        throw new Error(result.message || 'Unknown error');
+      }
+      showSuccess(data);
+    } catch (err) {
+      submitError.hidden = false;
+      submitError.focus();
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtnDefaultText;
+      }
+    }
+  });
+
+  function showSuccess(data) {
     const routeLabel = form.querySelector('input[name="route"]:checked')
       .closest('.choice').querySelector('.choice__title').textContent;
     const levelLabel = form.querySelector('input[name="level"]:checked')
@@ -192,11 +243,10 @@ document.documentElement.classList.add('js');
     addBadgeField('Company', text(data.get('company')), true);
     addBadgeField('Status', `${routeLabel} · ${levelLabel}`);
 
-    // No backend is wired up yet: swap this for a real POST when the endpoint exists.
     form.hidden = true;
     success.hidden = false;
     success.focus();
-  });
+  }
 
   // Clear only the field the user is actually repairing.
   form.addEventListener('input', (e) => {

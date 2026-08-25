@@ -122,9 +122,19 @@
         </div>
       </fieldset>
 
+      <div class="field" aria-hidden="true" style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;">
+        <label for="hp-field">Leave this field blank</label>
+        <input type="text" id="hp-field" name="hp-field" tabindex="-1" autocomplete="off">
+      </div>
+
       <div class="form__error" id="form-error" role="alert" hidden>
         <p class="form__error-title">A few things still need filling in</p>
         <ul class="form__error-list" id="form-error-list"></ul>
+      </div>
+
+      <div class="form__error" id="form-submit-error" role="alert" tabindex="-1" hidden>
+        <p class="form__error-title">Your registration did not go through</p>
+        <p>Something went wrong sending your details. Please try again, or email us directly if it keeps happening.</p>
       </div>
 
       <div class="form__foot">
